@@ -95,6 +95,7 @@
             this.btnAddMedicine.TabIndex = 2;
             this.btnAddMedicine.Text = "Thêm";
             this.btnAddMedicine.UseVisualStyleBackColor = true;
+            this.btnAddMedicine.Click += new System.EventHandler(this.btnAddMedicine_Click);
             // 
             // cbMedicine
             // 
@@ -122,6 +123,7 @@
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(222, 24);
             this.cbCategory.TabIndex = 0;
+            this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
             // 
             // txbTotalPrice
             // 
@@ -179,6 +181,7 @@
             this.btnPayment.TabIndex = 4;
             this.btnPayment.Text = "Thanh Toán";
             this.btnPayment.UseVisualStyleBackColor = true;
+            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // panel3
             // 
@@ -210,8 +213,8 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Tên món";
-            this.columnHeader1.Width = 84;
+            this.columnHeader1.Text = "Tên Thuốc";
+            this.columnHeader1.Width = 110;
             // 
             // lsvBill
             // 
@@ -224,7 +227,7 @@
             this.lsvBill.FullRowSelect = true;
             this.lsvBill.GridLines = true;
             this.lsvBill.HideSelection = false;
-            this.lsvBill.Location = new System.Drawing.Point(3, 0);
+            this.lsvBill.Location = new System.Drawing.Point(3, 3);
             this.lsvBill.Name = "lsvBill";
             this.lsvBill.Size = new System.Drawing.Size(446, 259);
             this.lsvBill.TabIndex = 0;
@@ -242,14 +245,14 @@
             // dangXuatToolStripMenuItem
             // 
             this.dangXuatToolStripMenuItem.Name = "dangXuatToolStripMenuItem";
-            this.dangXuatToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dangXuatToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.dangXuatToolStripMenuItem.Text = "Đăng xuất";
             this.dangXuatToolStripMenuItem.Click += new System.EventHandler(this.dangXuatToolStripMenuItem_Click);
             // 
             // thongTinCaNhanToolStripMenuItem
             // 
             this.thongTinCaNhanToolStripMenuItem.Name = "thongTinCaNhanToolStripMenuItem";
-            this.thongTinCaNhanToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.thongTinCaNhanToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.thongTinCaNhanToolStripMenuItem.Text = "Thông tin cá nhân";
             this.thongTinCaNhanToolStripMenuItem.Click += new System.EventHandler(this.thongTinCaNhanToolStripMenuItem_Click);
             // 
@@ -259,13 +262,13 @@
             this.thongTinCaNhanToolStripMenuItem,
             this.dangXuatToolStripMenuItem});
             this.thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
-            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.thôngTinToolStripMenuItem.Text = " Thông tin tài khoản";
             // 
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(67, 26);
             this.adminToolStripMenuItem.Text = "Admin";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
@@ -277,7 +280,7 @@
             this.thôngTinToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1018, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1018, 30);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 

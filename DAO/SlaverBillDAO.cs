@@ -20,11 +20,11 @@ namespace QuanLyTiemThuoc.DAO
 
         private SlaverBillDAO() { }
 
-        public List<SlaverBill> GetListMenuByTableID(int id)
+        public List<SlaverBill> GetListMenuBySlaverID(int id)
         {
             List<SlaverBill> listSlaverBill = new List<SlaverBill>();
 
-            string query = "select f.name, bi.count, f.price, f.price*bi.count as totalPrice from Bill as b, BillInfor as bi, Food as f\r\nwhere bi.idBill = b.id and bi.idFood= f.id and b.status = 0 and b.idTable =" + id;
+            string query = "select m.name, bi.count, m.price, m.price*bi.count as totalPrice from Bill as b, BillInfor as bi, Medicine as m\r\nwhere bi.idBill = b.id and bi.idMedicine= m.id and b.status = 0 and b.idSlaver =" + id;
 
             DataTable data = DataProvider.Instance.ExcuteQuery(query);
 

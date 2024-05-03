@@ -19,6 +19,7 @@ namespace QuanLyTiemThuoc.DTO
 
         private int discount;
 
+        
         public Bill(int id, DateTime? DataCheckIn, DateTime? DataCheckOut, int status, int discount = 0)
         {
             this.Id = id;
@@ -27,6 +28,8 @@ namespace QuanLyTiemThuoc.DTO
             this.Status = status;
             this.Discount = discount;
         }
+
+
 
         public Bill(DataRow row)
         {

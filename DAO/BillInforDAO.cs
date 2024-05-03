@@ -35,14 +35,14 @@ namespace QuanLyTiemThuoc.DAO
             return listBillInfor;
         }
 
-        public void InserBillInfor(int idBill, int idFood, int count)
+        public void InserBillInfor(int idBill, int idMedicine, int count)
         {
-            DataProvider.Instance.ExcuteNoneQuery("exec USP_InserBillInfo @idBill , @idMedicine , @count", new object[] { idBill, idFood, count });
+            DataProvider.Instance.ExcuteNoneQuery("exec USP_InserBillInfo @idBill , @idMedicine , @count", new object[] { idBill, idMedicine, count });
         }
 
-        public void DeleteBillInforByMedicineID(int idFood)
+        public void DeleteBillInforByMedicineID(int idMedicine)
         {
-            DataProvider.Instance.ExcuteQuery("delete BillInfor where idMedicine = " + idFood);
+            DataProvider.Instance.ExcuteQuery("delete BillInfor where idMedicine = " + idMedicine);
         }
     }
 }

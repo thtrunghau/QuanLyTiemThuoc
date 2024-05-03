@@ -20,9 +20,9 @@ namespace QuanLyTiemThuoc.DAO
 
         private BillDAO() { }
 
-        public int GetUncheckBillByTableID(int id)
+        public int GetUncheckBillBySlaverID(int id)
         {
-            DataTable data = DataProvider.Instance.ExcuteQuery("select * from Bill where idTable = " + id + " and status = 0");
+            DataTable data = DataProvider.Instance.ExcuteQuery("select * from Bill where idSlaver = " + id + " and status = 0");
 
             if (data.Rows.Count > 0)
             {
@@ -33,9 +33,9 @@ namespace QuanLyTiemThuoc.DAO
             return -1;
         }
 
-        public void InserBill(int tableId)
+        public void InserBill(int slaverId)
         {
-            DataProvider.Instance.ExcuteNoneQuery("exec UPS_InsertBill @idTable", new object[] { tableId });
+            DataProvider.Instance.ExcuteNoneQuery("exec UPS_InsertBill @idSlaver", new object[] { slaverId });
         }
 
         public int GetMaxID()
@@ -52,7 +52,8 @@ namespace QuanLyTiemThuoc.DAO
 
         public void CheckOut(int idBill, int discount, float totalPrice)
         {
-            string query = "update Bill set DateCheckOut = GetDate(), status = 1 " + ",discount = " + discount + ", totalPrice = " + totalPrice + "where id = " + idBill;
+            string query = "update Bill set DateCheckOut = GetDate(), status = 1 " + ",discount = " + discount +  "where id = " + idBill;
+            //string query = "update Bill set status = 1 where id = " + idBill;
             DataProvider.Instance.ExcuteNoneQuery(query);
         }
 

@@ -24,7 +24,7 @@ namespace QuanLyTiemThuoc.DAO
         {
             List<Category> list = new List<Category>();
 
-            string query = "select *from FoodCategory";
+            string query = "select *from MedicineCategory";
 
             DataTable data = DataProvider.Instance.ExcuteQuery(query);
 
@@ -40,7 +40,7 @@ namespace QuanLyTiemThuoc.DAO
         {
             Category category = null;
 
-            string query = "select *from FoodCategory where id = " + id;
+            string query = "select *from MedicineCategory where id = " + id;
 
             DataTable data = DataProvider.Instance.ExcuteQuery(query);
 

@@ -73,11 +73,11 @@
     <Compile Include="GUI\fAdmin.Designer.cs">
       <DependentUpon>fAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Form1.cs">
+    <Compile Include="GUI\flogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+      <DependentUpon>flogin.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\fSlaverManager.cs">
       <SubType>Form</SubType>
@@ -94,7 +94,7 @@
       <DependentUpon>fAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+      <DependentUpon>flogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fSlaverManager.resx">
       <DependentUpon>fSlaverManager.cs</DependentUpon>
