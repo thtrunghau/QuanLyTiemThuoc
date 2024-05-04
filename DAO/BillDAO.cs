@@ -52,7 +52,7 @@ namespace QuanLyTiemThuoc.DAO
 
         public void CheckOut(int idBill, int discount, float totalPrice)
         {
-            string query = "update Bill set DateCheckOut = GetDate(), status = 1 " + ",discount = " + discount +  "where id = " + idBill;
+            string query = "update Bill set DateCheckOut = GetDate(), status = 1 " + ",discount = " + discount + ", totalPrice = " + totalPrice + "where id = " + idBill;
             //string query = "update Bill set status = 1 where id = " + idBill;
             DataProvider.Instance.ExcuteNoneQuery(query);
         }

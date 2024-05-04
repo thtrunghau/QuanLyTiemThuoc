@@ -102,7 +102,8 @@ namespace QuanLyTiemThuoc.GUI
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            fAdmin f = new fAdmin();
+            f.ShowDialog();
         }
         #endregion
 
@@ -160,7 +161,7 @@ namespace QuanLyTiemThuoc.GUI
             {
                 if (MessageBox.Show(string.Format("Bạn có chắc muốn thanh toán hóa đơn cho bàn {0} \n Tổng tiền - (Tổng tiền/100) x Giảm giá \n=> {1} - ({1}/100) x {2} = {3}", slaver.Name, totalPrice, discount, finalPrice), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
-                    BillDAO.Instance.CheckOut(idBill, discount, (float)totalPrice);
+                    BillDAO.Instance.CheckOut(idBill, discount, (float)finalPrice);
                     ShowBill(slaver.ID);
                     LoadSlaver();
                 }
