@@ -10,14 +10,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static QuanLyTiemThuoc.GUI.fAccountFrofile;
 
 namespace QuanLyTiemThuoc.GUI
 {
     public partial class fSlaverManager : Form
     {
-        public fSlaverManager()
+        private Account loginAccount;
+
+        public Account LoginAccount
+        {
+            get { return loginAccount; }
+            set { loginAccount = value; ChangeAccount(loginAccount.Type); }
+        }
+        public fSlaverManager(Account loginAcc)
         {
             InitializeComponent();
+            this.LoginAccount = loginAcc;
             LoadSlaver();
             LoadCategory();
         }
@@ -79,6 +88,14 @@ namespace QuanLyTiemThuoc.GUI
             txbTotalPrice.Text = totalPrice.ToString("c", cultureInfo);
 
         }
+
+        void ChangeAccount(int type)
+        {
+            ///phân quyền  
+            Console.WriteLine(type);
+            adminToolStripMenuItem.Enabled = type == 1;
+            ///thongTinToolStripMenuItem.Text += " (" + LoginAccount.DisplayName + ")";
+        }
         #endregion
 
         #region events
@@ -96,16 +113,119 @@ namespace QuanLyTiemThuoc.GUI
 
         private void thongTinCaNhanToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fAccountFrofile f = new fAccountFrofile();
+            fAccountFrofile f = new fAccountFrofile(loginAccount);
+            f.E_updateAccount += F_E_updateAccount;
             f.ShowDialog();
+        }
+
+        private void F_E_updateAccount(object sender, AccountEvent e)
+        {
+            ///thongTinToolStripMenuItem.Text += " (" + e.Acc.DisplayName + ")";
+            thongTinCaNhanToolStripMenuItem.Text = "Thông tin tài khoản (" + e.Acc.DisplayName + ")";
         }
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAdmin f = new fAdmin();
+            f.InsertMedicine += F_InsertMedicine;
+            f.DeleteMedicine += F_DeleteMedicine;
+            f.UpdateMedicine += F_UpdateMedicine;
+            f.InsertCategory += F_InsertCategory;
+            f.UpdateCategory += F_UpdateCategory;
+            f.DeleteCategory += F_DeleteCategory;
+            f.InsertSlaver += F_InsertSlaver;
+            f.UpdateSlaver += F_UpdateSlaver;
+            f.DeleteSlaver += F_DeleteSlaver;
             f.ShowDialog();
         }
-        #endregion
+
+        private void F_DeleteSlaver(object sender, EventArgs e)
+        {
+            LoadMedicineListByCategoryID((cbCategory.SelectedItem as Category).ID);
+            if (lsvBill.Tag != null)
+            {
+                ShowBill((lsvBill.Tag as Slaver).ID);
+            }
+            LoadSlaver();
+        }
+
+        private void F_UpdateSlaver(object sender, EventArgs e)
+        {
+            LoadMedicineListByCategoryID((cbCategory.SelectedItem as Category).ID);
+            if (lsvBill.Tag != null)
+            {
+                ShowBill((lsvBill.Tag as Slaver).ID);
+            }
+            LoadSlaver();
+        }
+
+        private void F_InsertSlaver(object sender, EventArgs e)
+        {
+            LoadMedicineListByCategoryID((cbCategory.SelectedItem as Category).ID);
+            if (lsvBill.Tag != null)
+            {
+                ShowBill((lsvBill.Tag as Slaver).ID);
+            }
+            LoadSlaver();
+        }
+
+        private void F_DeleteCategory(object sender, EventArgs e)
+        {
+            LoadMedicineListByCategoryID((cbCategory.SelectedItem as Category).ID);
+            if (lsvBill.Tag != null)
+            {
+                ShowBill((lsvBill.Tag as Slaver).ID);
+            }
+            LoadSlaver();
+        }
+
+        private void F_UpdateCategory(object sender, EventArgs e)
+        {
+            LoadCategory();
+            LoadMedicineListByCategoryID((cbCategory.SelectedItem as Category).ID);
+            if (lsvBill.Tag != null)
+            {
+                ShowBill((lsvBill.Tag as Slaver).ID);
+            }
+        }
+
+        private void F_InsertCategory(object sender, EventArgs e)
+        {
+            LoadCategory();
+            LoadMedicineListByCategoryID((cbCategory.SelectedItem as Category).ID);
+            if (lsvBill.Tag != null)
+            {
+                ShowBill((lsvBill.Tag as Slaver).ID);
+            }
+        }
+
+        private void F_UpdateMedicine(object sender, EventArgs e)
+        {
+            LoadMedicineListByCategoryID((cbCategory.SelectedItem as Category).ID);
+            if (lsvBill.Tag != null)
+            {
+                ShowBill((lsvBill.Tag as Slaver).ID);
+            }
+        }
+
+        private void F_DeleteMedicine(object sender, EventArgs e)
+        {
+            LoadMedicineListByCategoryID((cbCategory.SelectedItem as Category).ID);
+            if (lsvBill.Tag != null)
+            {
+                ShowBill((lsvBill.Tag as Slaver).ID);
+            }
+            LoadSlaver();
+        }
+
+        private void F_InsertMedicine(object sender, EventArgs e)
+        {
+            LoadMedicineListByCategoryID((cbCategory.SelectedItem as Category).ID);
+            if (lsvBill.Tag != null)
+            {
+                ShowBill((lsvBill.Tag as Slaver).ID);
+            }
+        }
 
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -167,5 +287,8 @@ namespace QuanLyTiemThuoc.GUI
                 }
             }
         }
+        #endregion
+
+
     }
 }

@@ -37,9 +37,47 @@ namespace QuanLyTiemThuoc.DAO
             return listSlaver;
         }
 
-        public void SwitchTable(int idTable1, int idTable2)
+        public bool InsertSlaver(string name)
         {
-            DataProvider.Instance.ExcuteQuery("exec USP_SwitchTable @idTable1 , @idTable2", new object[] { idTable1, idTable2 });
+            string query = string.Format("INSERT INTO MedicineSlaver (name) VALUES ( N'{0}')", name);
+
+            int result = DataProvider.Instance.ExcuteNoneQuery(query);
+
+            return result > 0;
+        }
+
+        public bool UpdateSlaver(string name, int idSlaver)
+        {
+            string query = string.Format("update MedicineSlaver set name = N'{0}' where id = {1}", name, idSlaver);
+
+            int result = DataProvider.Instance.ExcuteNoneQuery(query);
+
+            return result > 0;
+        }
+
+        public bool DeleteSlaver(int idSlaver)
+        {
+            string query = "exec USP_DeleteSlaver @idSlaver";
+
+            int result = DataProvider.Instance.ExcuteNoneQuery(query, new object[] { idSlaver });
+
+            return result > 0;
+        }
+
+        public List<Slaver> SearchSlaverrByName(string name)
+        {
+            List<Slaver> list = new List<Slaver>();
+
+            string query = string.Format("exec USP_SearchSlaver N'%{0}%'", name);
+
+            DataTable data = DataProvider.Instance.ExcuteQuery(query);
+
+            foreach (DataRow row in data.Rows)
+            {
+                Slaver slvaver = new Slaver(row);
+                list.Add(slvaver);
+            }
+            return list;
         }
     }
 }

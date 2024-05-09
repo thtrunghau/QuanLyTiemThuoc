@@ -1,4 +1,5 @@
 ﻿using QuanLyTiemThuoc.DAO;
+using QuanLyTiemThuoc.DTO;
 using QuanLyTiemThuoc.GUI;
 using System;
 using System.Collections.Generic;
@@ -39,9 +40,8 @@ namespace QuanLyTiemThuoc
             string passWord = txbPassWord.Text;
             if (loginCheck(userName, passWord))
             {
-                ///Account loginAccount = AccountDAO.Instance.GetAccountByUserName(userName);
-                ///fSlaverManager fSlaverManager = new fSlaverManager(loginAccount);
-                fSlaverManager fSlaverManager = new fSlaverManager();
+                Account loginAccount = AccountDAO.Instance.GetAccountByUserName(userName);
+                fSlaverManager fSlaverManager = new fSlaverManager(loginAccount);
                 this.Hide();
                 fSlaverManager.ShowDialog();
                 this.Show();
