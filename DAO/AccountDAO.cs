@@ -71,8 +71,6 @@ namespace QuanLyTiemThuoc.DAO
 
         public bool DeleteAccount(string userName)
         {
-
-
             string query = string.Format("delete Account where UserName = N'{0}'", userName);
 
             int result = DataProvider.Instance.ExcuteNoneQuery(query);
@@ -84,7 +82,7 @@ namespace QuanLyTiemThuoc.DAO
         {
 
 
-            string query = string.Format("update Account set PassWord = N'0' where UserName = N'{0}'", userName);
+            string query = string.Format("update Account set PassWord = N'123456' where UserName = N'{0}'", userName);
 
             int result = DataProvider.Instance.ExcuteNoneQuery(query);
 

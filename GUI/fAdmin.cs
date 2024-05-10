@@ -11,6 +11,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClosedXML.Excel;
 
 namespace QuanLyTiemThuoc.GUI
 {
@@ -20,6 +21,7 @@ namespace QuanLyTiemThuoc.GUI
         BindingSource categoryList = new BindingSource();
         BindingSource slaverList = new BindingSource();
         BindingSource accountList = new BindingSource();
+        public Account currentAccount;
         public fAdmin()
         {
             InitializeComponent();
@@ -35,13 +37,17 @@ namespace QuanLyTiemThuoc.GUI
             LoadListMedicine();
             LoadMedicineCategory();
             LoadListSlaver();
+            LoadAccount();
             dtgvMedicine.DataSource = medicineList;
             dtgvCategory.DataSource = categoryList;
             dtgvSlaver.DataSource = slaverList;
+            dtgvAccount.DataSource = accountList;
             LoadCategoryInforMedicine(cbMedicineCategory);
             AddMedicineBinding();
             AddMedicineCategoryBinding();
             AddSlaverBinding();
+            AddAccountBinding();
+            
         }
         void LoadDateTimePicker()
         {
@@ -102,35 +108,67 @@ namespace QuanLyTiemThuoc.GUI
             cb.DisplayMember = "Name";
         }
 
-        List<Medicine> SearchMedicineByName(string medicineName)
+        void LoadAccount()
         {
-            List<Medicine> listMedicine = MedicineDAO.Instance.SearchMedicineByName(medicineName);
-
-            return listMedicine;
+            accountList.DataSource = AccountDAO.Instance.GetListAccount();
         }
 
-        List<Category> SearchCategoryByName(string categoryName)
+        void AddAccount(string userName, string displayName, int Type)
         {
-            List<Category> listCategory = CategoryDAO.Instance.SearchMedicineCategoryByName(categoryName);
-
-            return listCategory;
+            if (AccountDAO.Instance.InsertAccount(userName, displayName, Type))
+            {
+                MessageBox.Show("Thêm tài khoản thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi thêm tài khoản!");
+            }
+            LoadAccount();
         }
 
-        List<Slaver> SearchSlaverByName(string slaverName)
+        void UpdateAccount(string userName, string displayName, int Type)
         {
-            List<Slaver> listSlaver = SlaverDAO.Instance.SearchSlaverrByName(slaverName);
-
-            return listSlaver;
+            if (AccountDAO.Instance.UpdateAccount(userName, displayName, Type))
+            {
+                MessageBox.Show("Cập nhật tài khoản thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi cập nhật tài khoản!");
+            }
+            LoadAccount();
         }
 
-        List<Account> SearchUserByName(string userName)
+        void DeleteAccount(string userName)
         {
-            List<Account> listUser = AccountDAO.Instance.SearchUserByName(userName);
-
-            return listUser;
+            if (currentAccount.UserName.Equals(userName))
+            {
+                MessageBox.Show("Không thể xóa tài khoản đang đăng nhập!");
+                return;
+            }
+            if (AccountDAO.Instance.DeleteAccount(userName))
+            {
+                MessageBox.Show("Xóa tài khoản thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi xóa tài khoản!");
+            }
+            LoadAccount();
         }
 
-        
+        void ResetPassword(string userName)
+        {
+            if (AccountDAO.Instance.ResetPassword(userName))
+            {
+                MessageBox.Show("Đặt lại mật khẩu thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi đặt lại mật khẩu!");
+            }
+
+        }
         #endregion
 
         #region event
@@ -140,7 +178,53 @@ namespace QuanLyTiemThuoc.GUI
             LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
         }
 
+        private void btnXuatFileBill_Click(object sender, EventArgs e)
+        {
+            XLWorkbook workbook = null;
 
+            try
+            {
+                // Create a new workbook and worksheet
+                workbook = new XLWorkbook();
+                var worksheet = workbook.Worksheets.Add("Sheet1");
+
+                // Get column headers
+                for (int i = 1; i <= dtgvBill.Columns.Count; i++)
+                {
+                    worksheet.Cell(1, i).Value = dtgvBill.Columns[i - 1].HeaderText;
+                }
+
+                // Get data from DataGridView
+                for (int i = 0; i < dtgvBill.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dtgvBill.Columns.Count; j++)
+                    {
+                        worksheet.Cell(i + 2, j + 1).Value = dtgvBill.Rows[i].Cells[j].Value?.ToString();
+                    }
+                }
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                string today = DateTime.Now.ToString("yyyyMMdd");
+                saveFileDialog.FileName = $"{"ExportedDataBill"}_{today}.xlsx";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Save the workbook to the selected file
+                    workbook.SaveAs(saveFileDialog.FileName);
+                    MessageBox.Show("Dữ liệu được xuất thành công.", "Xuất dữ liệu thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Dispose of the workbook to release resources
+                workbook?.Dispose();
+            }
+        }
         #region Medicine
         private void txbMedicineID_TextChanged(object sender, EventArgs e)
         {
@@ -263,7 +347,7 @@ namespace QuanLyTiemThuoc.GUI
 
         private void btnSearchMedicine_Click(object sender, EventArgs e)
         {
-            medicineList.DataSource =  SearchMedicineByName(txbSearchMedicineName.Text);
+            medicineList.DataSource = MedicineDAO.Instance.SearchMedicineByName(txbSearchMedicineName.Text);
         }
         #endregion
 
@@ -449,10 +533,59 @@ namespace QuanLyTiemThuoc.GUI
             slaverList.DataSource = SlaverDAO.Instance.SearchSlaverrByName(txbSearchSlaver.Text);
         }
 
+
+        #endregion
+
+        #region Account
+        private void btnShowAccount_Click(object sender, EventArgs e)
+        {
+            LoadAccount();
+        }
+
+        private void btnAddAccount_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+            string displayName = txbDisPlayName.Text;
+            int type = (int)nmAccountType.Value;
+
+            AddAccount(userName, displayName, type);
+        }
+
+        private void btnDeleteAccount_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+
+            DeleteAccount(userName);
+        }
+
+        private void btnEditAccount_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+            string displayName = txbDisPlayName.Text;
+            int type = (int)nmAccountType.Value;
+
+            UpdateAccount(userName, displayName, type);
+        }
+        private event EventHandler e_updateAccount;
+
+        public event EventHandler E_updateAccount
+        {
+            add { e_updateAccount += value; }
+            remove { e_updateAccount -= value; }
+        }
+
+        private void btnResetPassWord_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+
+            ResetPassword(userName);
+        }
+
+
         #endregion
 
         #endregion
 
-
+        
     }
 }

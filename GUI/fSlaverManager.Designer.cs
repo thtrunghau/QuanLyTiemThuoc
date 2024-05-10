@@ -35,8 +35,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.txbTotalPrice = new System.Windows.Forms.TextBox();
-            this.cbSwitchSlaver = new System.Windows.Forms.ComboBox();
-            this.btnSwitchTable = new System.Windows.Forms.Button();
             this.nmDiscount = new System.Windows.Forms.NumericUpDown();
             this.btnDiscount = new System.Windows.Forms.Button();
             this.btnPayment = new System.Windows.Forms.Button();
@@ -52,6 +50,8 @@
             this.thongTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nmMedicineCount)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmDiscount)).BeginInit();
@@ -136,27 +136,9 @@
             this.txbTotalPrice.Text = "0";
             this.txbTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // cbSwitchSlaver
-            // 
-            this.cbSwitchSlaver.FormattingEnabled = true;
-            this.cbSwitchSlaver.Location = new System.Drawing.Point(3, 48);
-            this.cbSwitchSlaver.Name = "cbSwitchSlaver";
-            this.cbSwitchSlaver.Size = new System.Drawing.Size(128, 24);
-            this.cbSwitchSlaver.TabIndex = 8;
-            // 
-            // btnSwitchTable
-            // 
-            this.btnSwitchTable.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSwitchTable.Location = new System.Drawing.Point(3, 7);
-            this.btnSwitchTable.Name = "btnSwitchTable";
-            this.btnSwitchTable.Size = new System.Drawing.Size(128, 36);
-            this.btnSwitchTable.TabIndex = 7;
-            this.btnSwitchTable.Text = "Chuyển khay";
-            this.btnSwitchTable.UseVisualStyleBackColor = true;
-            // 
             // nmDiscount
             // 
-            this.nmDiscount.Location = new System.Drawing.Point(160, 48);
+            this.nmDiscount.Location = new System.Drawing.Point(21, 49);
             this.nmDiscount.Name = "nmDiscount";
             this.nmDiscount.Size = new System.Drawing.Size(91, 22);
             this.nmDiscount.TabIndex = 6;
@@ -165,7 +147,7 @@
             // btnDiscount
             // 
             this.btnDiscount.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDiscount.Location = new System.Drawing.Point(160, 7);
+            this.btnDiscount.Location = new System.Drawing.Point(21, 7);
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.Size = new System.Drawing.Size(91, 36);
             this.btnDiscount.TabIndex = 5;
@@ -185,9 +167,9 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.txbTotalPrice);
-            this.panel3.Controls.Add(this.cbSwitchSlaver);
-            this.panel3.Controls.Add(this.btnSwitchTable);
             this.panel3.Controls.Add(this.nmDiscount);
             this.panel3.Controls.Add(this.btnDiscount);
             this.panel3.Controls.Add(this.btnPayment);
@@ -245,14 +227,14 @@
             // dangXuatToolStripMenuItem
             // 
             this.dangXuatToolStripMenuItem.Name = "dangXuatToolStripMenuItem";
-            this.dangXuatToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dangXuatToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.dangXuatToolStripMenuItem.Text = "Đăng xuất";
             this.dangXuatToolStripMenuItem.Click += new System.EventHandler(this.dangXuatToolStripMenuItem_Click);
             // 
             // thongTinCaNhanToolStripMenuItem
             // 
             this.thongTinCaNhanToolStripMenuItem.Name = "thongTinCaNhanToolStripMenuItem";
-            this.thongTinCaNhanToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.thongTinCaNhanToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.thongTinCaNhanToolStripMenuItem.Text = "Thông tin cá nhân";
             this.thongTinCaNhanToolStripMenuItem.Click += new System.EventHandler(this.thongTinCaNhanToolStripMenuItem_Click);
             // 
@@ -280,9 +262,29 @@
             this.thongTinToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1018, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1018, 28);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label1.Location = new System.Drawing.Point(185, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 16);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Tổng tiền:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(118, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(19, 16);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "%";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // fSlaverManager
             // 
@@ -319,8 +321,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox cbCategory;
         private System.Windows.Forms.TextBox txbTotalPrice;
-        private System.Windows.Forms.ComboBox cbSwitchSlaver;
-        private System.Windows.Forms.Button btnSwitchTable;
         private System.Windows.Forms.NumericUpDown nmDiscount;
         private System.Windows.Forms.Button btnDiscount;
         private System.Windows.Forms.Button btnPayment;
@@ -336,5 +336,7 @@
         private System.Windows.Forms.ToolStripMenuItem thongTinToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

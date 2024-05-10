@@ -118,6 +118,9 @@
             this.bntSearchSlaver = new System.Windows.Forms.Button();
             this.txbSearchUser = new System.Windows.Forms.TextBox();
             this.btnSearchUser = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnXuatFileBill = new System.Windows.Forms.Button();
             this.panel20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSlaver)).BeginInit();
             this.panel19.SuspendLayout();
@@ -412,6 +415,7 @@
             this.btnShowAccount.TabIndex = 3;
             this.btnShowAccount.Text = "Xem";
             this.btnShowAccount.UseVisualStyleBackColor = true;
+            this.btnShowAccount.Click += new System.EventHandler(this.btnShowAccount_Click);
             // 
             // btnEditAccount
             // 
@@ -422,6 +426,7 @@
             this.btnEditAccount.TabIndex = 2;
             this.btnEditAccount.Text = "Sửa";
             this.btnEditAccount.UseVisualStyleBackColor = true;
+            this.btnEditAccount.Click += new System.EventHandler(this.btnEditAccount_Click);
             // 
             // btnAddAccount
             // 
@@ -432,6 +437,7 @@
             this.btnAddAccount.TabIndex = 0;
             this.btnAddAccount.Text = "Thêm";
             this.btnAddAccount.UseVisualStyleBackColor = true;
+            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
             // 
             // panel27
             // 
@@ -455,9 +461,11 @@
             this.btnDeleteAccount.TabIndex = 1;
             this.btnDeleteAccount.Text = "Xóa";
             this.btnDeleteAccount.UseVisualStyleBackColor = false;
+            this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
             // 
             // dtgvAccount
             // 
+            this.dtgvAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvAccount.Location = new System.Drawing.Point(4, 4);
             this.dtgvAccount.Margin = new System.Windows.Forms.Padding(4);
@@ -544,7 +552,7 @@
             0,
             0});
             this.nmAccountType.Name = "nmAccountType";
-            this.nmAccountType.Size = new System.Drawing.Size(104, 22);
+            this.nmAccountType.Size = new System.Drawing.Size(45, 22);
             this.nmAccountType.TabIndex = 1;
             // 
             // label10
@@ -567,6 +575,7 @@
             this.btnResetPassWord.TabIndex = 4;
             this.btnResetPassWord.Text = "Đặt lại mật khẩu";
             this.btnResetPassWord.UseVisualStyleBackColor = true;
+            this.btnResetPassWord.Click += new System.EventHandler(this.btnResetPassWord_Click);
             // 
             // panel23
             // 
@@ -898,7 +907,7 @@
             // btnViewBill
             // 
             this.btnViewBill.ForeColor = System.Drawing.Color.Black;
-            this.btnViewBill.Location = new System.Drawing.Point(469, 4);
+            this.btnViewBill.Location = new System.Drawing.Point(758, 9);
             this.btnViewBill.Margin = new System.Windows.Forms.Padding(4);
             this.btnViewBill.Name = "btnViewBill";
             this.btnViewBill.Size = new System.Drawing.Size(92, 27);
@@ -909,7 +918,7 @@
             // 
             // dtpkToDate
             // 
-            this.dtpkToDate.Location = new System.Drawing.Point(683, 4);
+            this.dtpkToDate.Location = new System.Drawing.Point(424, 9);
             this.dtpkToDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpkToDate.Name = "dtpkToDate";
             this.dtpkToDate.Size = new System.Drawing.Size(265, 22);
@@ -917,7 +926,7 @@
             // 
             // dtpkFromDate
             // 
-            this.dtpkFromDate.Location = new System.Drawing.Point(92, 4);
+            this.dtpkFromDate.Location = new System.Drawing.Point(61, 9);
             this.dtpkFromDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpkFromDate.Name = "dtpkFromDate";
             this.dtpkFromDate.Size = new System.Drawing.Size(265, 22);
@@ -925,13 +934,16 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnXuatFileBill);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.btnViewBill);
             this.panel1.Controls.Add(this.dtpkToDate);
             this.panel1.Controls.Add(this.dtpkFromDate);
             this.panel1.Location = new System.Drawing.Point(4, 4);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1016, 33);
+            this.panel1.Size = new System.Drawing.Size(1016, 40);
             this.panel1.TabIndex = 3;
             // 
             // tpBill
@@ -1123,6 +1135,39 @@
             this.btnSearchUser.Text = "Tìm Kiếm";
             this.btnSearchUser.UseVisualStyleBackColor = true;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(25, 14);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(29, 16);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Từ:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(379, 14);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(38, 16);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "Đến:";
+            // 
+            // btnXuatFileBill
+            // 
+            this.btnXuatFileBill.ForeColor = System.Drawing.Color.Black;
+            this.btnXuatFileBill.Location = new System.Drawing.Point(887, 9);
+            this.btnXuatFileBill.Margin = new System.Windows.Forms.Padding(4);
+            this.btnXuatFileBill.Name = "btnXuatFileBill";
+            this.btnXuatFileBill.Size = new System.Drawing.Size(92, 27);
+            this.btnXuatFileBill.TabIndex = 5;
+            this.btnXuatFileBill.Text = "Xuất File";
+            this.btnXuatFileBill.UseVisualStyleBackColor = true;
+            this.btnXuatFileBill.Click += new System.EventHandler(this.btnXuatFileBill_Click);
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1178,6 +1223,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tpBill.ResumeLayout(false);
             this.tcAdmin.ResumeLayout(false);
             this.tpMedicineCategory.ResumeLayout(false);
@@ -1284,5 +1330,8 @@
         private System.Windows.Forms.Button btnSearchUser;
         private System.Windows.Forms.TextBox txbSearchCategory;
         private System.Windows.Forms.Button btnSearchCategory;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnXuatFileBill;
     }
 }

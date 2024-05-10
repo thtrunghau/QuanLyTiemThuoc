@@ -92,7 +92,6 @@ namespace QuanLyTiemThuoc.GUI
         void ChangeAccount(int type)
         {
             ///phân quyền  
-            Console.WriteLine(type);
             adminToolStripMenuItem.Enabled = type == 1;
             ///thongTinToolStripMenuItem.Text += " (" + LoginAccount.DisplayName + ")";
         }
@@ -127,6 +126,7 @@ namespace QuanLyTiemThuoc.GUI
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAdmin f = new fAdmin();
+            f.currentAccount = LoginAccount;
             f.InsertMedicine += F_InsertMedicine;
             f.DeleteMedicine += F_DeleteMedicine;
             f.UpdateMedicine += F_UpdateMedicine;
@@ -136,7 +136,13 @@ namespace QuanLyTiemThuoc.GUI
             f.InsertSlaver += F_InsertSlaver;
             f.UpdateSlaver += F_UpdateSlaver;
             f.DeleteSlaver += F_DeleteSlaver;
+            f.E_updateAccount += F_E_updateAccount1;
             f.ShowDialog();
+        }
+
+        private void F_E_updateAccount1(object sender, EventArgs e)
+        {
+            thongTinCaNhanToolStripMenuItem.Text = "Thông tin tài khoản (" + loginAccount.DisplayName + ")";
         }
 
         private void F_DeleteSlaver(object sender, EventArgs e)
