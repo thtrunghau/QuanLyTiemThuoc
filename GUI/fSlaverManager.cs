@@ -293,8 +293,7 @@ namespace QuanLyTiemThuoc.GUI
                 }
             }
         }
+
         #endregion
-
-
     }
 }

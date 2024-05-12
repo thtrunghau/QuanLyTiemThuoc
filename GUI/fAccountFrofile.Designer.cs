@@ -256,7 +256,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "fAccountFrofile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fAccountFrofile";
+            this.Text = "Thông tin cá nhân";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
