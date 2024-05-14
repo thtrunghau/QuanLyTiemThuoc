@@ -53,7 +53,7 @@ namespace QuanLyTiemThuoc.DAO
 
         public bool InsertAccount(string userName, string displayName, int type)
         {
-            string query = string.Format("insert into Account (UserName, DisplayName, Type) values (N'{0}', N'{1}', {2})", userName, displayName, type);
+            string query = string.Format("exec USP_InsertAcc N'{0}', N'{1}', {2}", displayName, userName, type);
 
             int result = DataProvider.Instance.ExcuteNoneQuery(query);
 
