@@ -47,7 +47,7 @@ namespace QuanLyTiemThuoc.GUI
 
             if (!newPassword.Equals(reEnterPassword))
             {
-                MessageBox.Show("Vui lòng nhập lại mật khẩu mới!");
+                MessageBox.Show("Vui lòng nhập lại đúng mật khẩu mới!");
             }
             else
             {
