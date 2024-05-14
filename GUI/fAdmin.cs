@@ -169,6 +169,8 @@ namespace QuanLyTiemThuoc.GUI
             }
 
         }
+
+        
         #endregion
 
         #region event
@@ -581,11 +583,15 @@ namespace QuanLyTiemThuoc.GUI
             ResetPassword(userName);
         }
 
-
+        private void btnSearchUser_Click(object sender, EventArgs e)
+        {
+            accountList.DataSource = AccountDAO.Instance.SearchUserByName(txbSearchUser.Text);
+            dtgvAccount.Columns["PassWord"].Visible = false;
+        }
         #endregion
 
         #endregion
 
-        
+
     }
 }

@@ -39,6 +39,7 @@
             this.txbSlaverID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
+            this.txbTrangThai = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txbSlaverName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,6 +47,8 @@
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.tpSlaver = new System.Windows.Forms.TabPage();
+            this.txbSearchSlaver = new System.Windows.Forms.TextBox();
+            this.bntSearchSlaver = new System.Windows.Forms.Button();
             this.btnEditCategory = new System.Windows.Forms.Button();
             this.btnDeleteCategory = new System.Windows.Forms.Button();
             this.btnAddCategory = new System.Windows.Forms.Button();
@@ -69,6 +72,8 @@
             this.panel23 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
             this.tpAccount = new System.Windows.Forms.TabPage();
+            this.txbSearchUser = new System.Windows.Forms.TextBox();
+            this.btnSearchUser = new System.Windows.Forms.Button();
             this.dtgvCategory = new System.Windows.Forms.DataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txbMedicineID = new System.Windows.Forms.TextBox();
@@ -100,9 +105,14 @@
             this.dtpkToDate = new System.Windows.Forms.DateTimePicker();
             this.dtpkFromDate = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnXuatFileBill = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.tpBill = new System.Windows.Forms.TabPage();
             this.tcAdmin = new System.Windows.Forms.TabControl();
             this.tpMedicineCategory = new System.Windows.Forms.TabPage();
+            this.txbSearchCategory = new System.Windows.Forms.TextBox();
+            this.btnSearchCategory = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.txbCategoryName = new System.Windows.Forms.TextBox();
@@ -111,16 +121,6 @@
             this.txbCategoryID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.txbTrangThai = new System.Windows.Forms.TextBox();
-            this.txbSearchCategory = new System.Windows.Forms.TextBox();
-            this.btnSearchCategory = new System.Windows.Forms.Button();
-            this.txbSearchSlaver = new System.Windows.Forms.TextBox();
-            this.bntSearchSlaver = new System.Windows.Forms.Button();
-            this.txbSearchUser = new System.Windows.Forms.TextBox();
-            this.btnSearchUser = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.btnXuatFileBill = new System.Windows.Forms.Button();
             this.panel20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSlaver)).BeginInit();
             this.panel19.SuspendLayout();
@@ -282,6 +282,16 @@
             this.panel21.Size = new System.Drawing.Size(456, 54);
             this.panel21.TabIndex = 3;
             // 
+            // txbTrangThai
+            // 
+            this.txbTrangThai.BackColor = System.Drawing.Color.Silver;
+            this.txbTrangThai.Location = new System.Drawing.Point(188, 18);
+            this.txbTrangThai.Margin = new System.Windows.Forms.Padding(4);
+            this.txbTrangThai.Name = "txbTrangThai";
+            this.txbTrangThai.ReadOnly = true;
+            this.txbTrangThai.Size = new System.Drawing.Size(229, 22);
+            this.txbTrangThai.TabIndex = 2;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -359,6 +369,25 @@
             this.tpSlaver.TabIndex = 3;
             this.tpSlaver.Text = "Khay Thuốc";
             this.tpSlaver.UseVisualStyleBackColor = true;
+            // 
+            // txbSearchSlaver
+            // 
+            this.txbSearchSlaver.Location = new System.Drawing.Point(544, 33);
+            this.txbSearchSlaver.Margin = new System.Windows.Forms.Padding(4);
+            this.txbSearchSlaver.Name = "txbSearchSlaver";
+            this.txbSearchSlaver.Size = new System.Drawing.Size(345, 22);
+            this.txbSearchSlaver.TabIndex = 12;
+            // 
+            // bntSearchSlaver
+            // 
+            this.bntSearchSlaver.Location = new System.Drawing.Point(899, 33);
+            this.bntSearchSlaver.Margin = new System.Windows.Forms.Padding(4);
+            this.bntSearchSlaver.Name = "bntSearchSlaver";
+            this.bntSearchSlaver.Size = new System.Drawing.Size(92, 25);
+            this.bntSearchSlaver.TabIndex = 11;
+            this.bntSearchSlaver.Text = "Tìm Kiếm";
+            this.bntSearchSlaver.UseVisualStyleBackColor = true;
+            this.bntSearchSlaver.Click += new System.EventHandler(this.bntSearchSlaver_Click);
             // 
             // btnEditCategory
             // 
@@ -614,6 +643,25 @@
             this.tpAccount.TabIndex = 4;
             this.tpAccount.Text = "Tài Khoản";
             this.tpAccount.UseVisualStyleBackColor = true;
+            // 
+            // txbSearchUser
+            // 
+            this.txbSearchUser.Location = new System.Drawing.Point(544, 33);
+            this.txbSearchUser.Margin = new System.Windows.Forms.Padding(4);
+            this.txbSearchUser.Name = "txbSearchUser";
+            this.txbSearchUser.Size = new System.Drawing.Size(345, 22);
+            this.txbSearchUser.TabIndex = 15;
+            // 
+            // btnSearchUser
+            // 
+            this.btnSearchUser.Location = new System.Drawing.Point(899, 33);
+            this.btnSearchUser.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearchUser.Name = "btnSearchUser";
+            this.btnSearchUser.Size = new System.Drawing.Size(92, 25);
+            this.btnSearchUser.TabIndex = 14;
+            this.btnSearchUser.Text = "Tìm Kiếm";
+            this.btnSearchUser.UseVisualStyleBackColor = true;
+            this.btnSearchUser.Click += new System.EventHandler(this.btnSearchUser_Click);
             // 
             // dtgvCategory
             // 
@@ -946,6 +994,39 @@
             this.panel1.Size = new System.Drawing.Size(1016, 40);
             this.panel1.TabIndex = 3;
             // 
+            // btnXuatFileBill
+            // 
+            this.btnXuatFileBill.ForeColor = System.Drawing.Color.Black;
+            this.btnXuatFileBill.Location = new System.Drawing.Point(887, 9);
+            this.btnXuatFileBill.Margin = new System.Windows.Forms.Padding(4);
+            this.btnXuatFileBill.Name = "btnXuatFileBill";
+            this.btnXuatFileBill.Size = new System.Drawing.Size(92, 27);
+            this.btnXuatFileBill.TabIndex = 5;
+            this.btnXuatFileBill.Text = "Xuất File";
+            this.btnXuatFileBill.UseVisualStyleBackColor = true;
+            this.btnXuatFileBill.Click += new System.EventHandler(this.btnXuatFileBill_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(379, 14);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(38, 16);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "Đến:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(25, 14);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(29, 16);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Từ:";
+            // 
             // tpBill
             // 
             this.tpBill.Controls.Add(this.panel1);
@@ -988,6 +1069,25 @@
             this.tpMedicineCategory.TabIndex = 2;
             this.tpMedicineCategory.Text = "Danh Mục";
             this.tpMedicineCategory.UseVisualStyleBackColor = true;
+            // 
+            // txbSearchCategory
+            // 
+            this.txbSearchCategory.Location = new System.Drawing.Point(544, 33);
+            this.txbSearchCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.txbSearchCategory.Name = "txbSearchCategory";
+            this.txbSearchCategory.Size = new System.Drawing.Size(345, 22);
+            this.txbSearchCategory.TabIndex = 9;
+            // 
+            // btnSearchCategory
+            // 
+            this.btnSearchCategory.Location = new System.Drawing.Point(899, 33);
+            this.btnSearchCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearchCategory.Name = "btnSearchCategory";
+            this.btnSearchCategory.Size = new System.Drawing.Size(92, 25);
+            this.btnSearchCategory.TabIndex = 8;
+            this.btnSearchCategory.Text = "Tìm Kiếm";
+            this.btnSearchCategory.UseVisualStyleBackColor = true;
+            this.btnSearchCategory.Click += new System.EventHandler(this.btnSearchCategory_Click);
             // 
             // panel11
             // 
@@ -1068,105 +1168,6 @@
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(505, 388);
             this.panel17.TabIndex = 5;
-            // 
-            // txbTrangThai
-            // 
-            this.txbTrangThai.BackColor = System.Drawing.Color.Silver;
-            this.txbTrangThai.Location = new System.Drawing.Point(188, 18);
-            this.txbTrangThai.Margin = new System.Windows.Forms.Padding(4);
-            this.txbTrangThai.Name = "txbTrangThai";
-            this.txbTrangThai.ReadOnly = true;
-            this.txbTrangThai.Size = new System.Drawing.Size(229, 22);
-            this.txbTrangThai.TabIndex = 2;
-            // 
-            // txbSearchCategory
-            // 
-            this.txbSearchCategory.Location = new System.Drawing.Point(544, 33);
-            this.txbSearchCategory.Margin = new System.Windows.Forms.Padding(4);
-            this.txbSearchCategory.Name = "txbSearchCategory";
-            this.txbSearchCategory.Size = new System.Drawing.Size(345, 22);
-            this.txbSearchCategory.TabIndex = 9;
-            // 
-            // btnSearchCategory
-            // 
-            this.btnSearchCategory.Location = new System.Drawing.Point(899, 33);
-            this.btnSearchCategory.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearchCategory.Name = "btnSearchCategory";
-            this.btnSearchCategory.Size = new System.Drawing.Size(92, 25);
-            this.btnSearchCategory.TabIndex = 8;
-            this.btnSearchCategory.Text = "Tìm Kiếm";
-            this.btnSearchCategory.UseVisualStyleBackColor = true;
-            this.btnSearchCategory.Click += new System.EventHandler(this.btnSearchCategory_Click);
-            // 
-            // txbSearchSlaver
-            // 
-            this.txbSearchSlaver.Location = new System.Drawing.Point(544, 33);
-            this.txbSearchSlaver.Margin = new System.Windows.Forms.Padding(4);
-            this.txbSearchSlaver.Name = "txbSearchSlaver";
-            this.txbSearchSlaver.Size = new System.Drawing.Size(345, 22);
-            this.txbSearchSlaver.TabIndex = 12;
-            // 
-            // bntSearchSlaver
-            // 
-            this.bntSearchSlaver.Location = new System.Drawing.Point(899, 33);
-            this.bntSearchSlaver.Margin = new System.Windows.Forms.Padding(4);
-            this.bntSearchSlaver.Name = "bntSearchSlaver";
-            this.bntSearchSlaver.Size = new System.Drawing.Size(92, 25);
-            this.bntSearchSlaver.TabIndex = 11;
-            this.bntSearchSlaver.Text = "Tìm Kiếm";
-            this.bntSearchSlaver.UseVisualStyleBackColor = true;
-            this.bntSearchSlaver.Click += new System.EventHandler(this.bntSearchSlaver_Click);
-            // 
-            // txbSearchUser
-            // 
-            this.txbSearchUser.Location = new System.Drawing.Point(544, 33);
-            this.txbSearchUser.Margin = new System.Windows.Forms.Padding(4);
-            this.txbSearchUser.Name = "txbSearchUser";
-            this.txbSearchUser.Size = new System.Drawing.Size(345, 22);
-            this.txbSearchUser.TabIndex = 15;
-            // 
-            // btnSearchUser
-            // 
-            this.btnSearchUser.Location = new System.Drawing.Point(899, 33);
-            this.btnSearchUser.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearchUser.Name = "btnSearchUser";
-            this.btnSearchUser.Size = new System.Drawing.Size(92, 25);
-            this.btnSearchUser.TabIndex = 14;
-            this.btnSearchUser.Text = "Tìm Kiếm";
-            this.btnSearchUser.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(25, 14);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(29, 16);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "Từ:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(379, 14);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(38, 16);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "Đến:";
-            // 
-            // btnXuatFileBill
-            // 
-            this.btnXuatFileBill.ForeColor = System.Drawing.Color.Black;
-            this.btnXuatFileBill.Location = new System.Drawing.Point(887, 9);
-            this.btnXuatFileBill.Margin = new System.Windows.Forms.Padding(4);
-            this.btnXuatFileBill.Name = "btnXuatFileBill";
-            this.btnXuatFileBill.Size = new System.Drawing.Size(92, 27);
-            this.btnXuatFileBill.TabIndex = 5;
-            this.btnXuatFileBill.Text = "Xuất File";
-            this.btnXuatFileBill.UseVisualStyleBackColor = true;
-            this.btnXuatFileBill.Click += new System.EventHandler(this.btnXuatFileBill_Click);
             // 
             // fAdmin
             // 
